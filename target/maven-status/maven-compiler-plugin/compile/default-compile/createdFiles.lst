@@ -1,0 +1,7 @@
+io\DemoApplication.class
+io\web\rest\UserResources.class
+io\domain\User.class
+io\service\UserService.class
+io\repository\UserRepository.class
+io\web\dto\UserDto.class
+io\config\SwaggerConfig.class
