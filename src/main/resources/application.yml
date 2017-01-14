@@ -1,0 +1,27 @@
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
+
+datasource:
+  url: jdbc:mysql://localhost:3306/io
+  username: io
+  password: pop123
+jpa:
+  database-platform: org.hibernate.dialect.MYSQLDialect
+  database: MYSQL
+  openInView: false
+  show_sql: true
+  generate-ddl: true
+  hibernate:
+    ddl-auto: create
+  properties:
+    hibernate.cache.use_second_level_cache: true
+    hibernate.cache.use_query_cache: false
+    hibernate.generate_statistics: false
+    hibernate.hbm2ddl.import_files: /sql/data.sql
+    hibernate.hbm2ddl.import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
+data:
+  jpa.repositories.enabled: true
