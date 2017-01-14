@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * Created by Konrad Skorupski on 2017-01-14.
  */
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 public class UserResources {
 
     @Autowired
@@ -23,9 +23,8 @@ public class UserResources {
     @Autowired
     UserService userService;
 
-    @RequestMapping(value = "/users/{id}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
+    @RequestMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
     public ResponseEntity<User> getUser(@PathVariable("id") Long id) {
-        userRepository.save(new User("admin", "admin"));
         User user;
 
         if((user = userRepository.findOne(id)) != null) {
@@ -34,7 +33,7 @@ public class UserResources {
         else return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @RequestMapping(value = "/users/login", consumes = MediaType.APPLICATION_JSON_VALUE,
+    @RequestMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
     public ResponseEntity<User> login(@RequestBody UserDto dto) {
         User user = userService.login(dto);
