@@ -5,9 +5,10 @@ import {CoursesComponent } from './courses.component';
 import {AuthorsComponent } from './authors.component';
 import {AuthorService} from "./author.service";
 import {AutoGrowDirective} from './auto-grow.directive';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports:      [ BrowserModule ],
+  imports:      [ BrowserModule, FormsModule ],
   declarations: [ AppComponent, CoursesComponent, AuthorsComponent, AutoGrowDirective ],
   bootstrap:    [ AppComponent ],
   providers: [AuthorService],
