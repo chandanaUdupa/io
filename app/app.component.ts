@@ -7,29 +7,23 @@ import {UserService} from "./service/UserService";
 @Component({
     selector: 'my-app',
     template: `
-         <div class="login-page">
-  <div class="form">
-    <form class="register-form">
-      <input type="text" placeholder="name" />
-      <input type="password" placeholder="password" />
-      <input type="text" placeholder="email address"/>
-      <button>create</button>
-      <p class="message">Already registered? <a href="#">Sign In</a></p>
-    </form>
-    <form class="login-form">
-      <input [(ngModel)]="user.username" name="login" type="text" placeholder="username"/>
-      <input [(ngModel)]="user.password" name="password" type="password" placeholder="password"/>
-      <button (click)="postLogin()">login</button>
-      <p class="message">Not registered? <a href="#">Create an account</a></p>
-    </form>
-  </div>
-</div>`
+    <login-page *ngIf="loginPage"></login-page>
+    <main-page *ngIf="mainPage"></main-page>     `
+
 })
 export class AppComponent {
     user: User = new User('', '');
+    private loginPage: boolean;
+    private mainPage: boolean;
 
     constructor () {
+    this.loginPage = true;
+    this.mainPage = false;
     }
+
+
+
+
 
     postLogin() {
         let foundUser = UserService.getByUsername(this.user.username)
@@ -40,7 +34,10 @@ export class AppComponent {
         }
         if(this.user.password == foundUser.password) {
             console.log("OK");
+            this.loginPage = false;
+            this.mainPage = true;
             return;
+
         } else {
             console.log("zle haslo");
             return;

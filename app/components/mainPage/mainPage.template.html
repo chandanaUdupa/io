@@ -1,0 +1,26 @@
+<div class="main-page">
+    <div class="form-main-page">
+        <div class="logo-image">
+            <img class="image" src="/app/images/logo.png">
+        </div>
+        <div class="menu-list">
+            <h4 class="menu-title">Menu</h4>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Wyglad</th>
+                <th>Nazwa</th>
+                <th>Cena</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let meal of getMeals(); let i = index">
+                <td><img src="http://lorempixel.com/150/150/food/{{i}}/"></td>
+                <td>{{meal.name}}</td>
+                <td>{{meal.price}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
