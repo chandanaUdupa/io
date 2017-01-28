@@ -31,6 +31,9 @@ var AppComponent = (function () {
             return;
         }
     };
+    AppComponent.prototype.getUsers = function () {
+        return UserService_1.UserService.users;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([

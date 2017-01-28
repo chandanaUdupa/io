@@ -46,4 +46,8 @@ export class AppComponent {
             return;
         }
     }
+
+    getUsers() {
+        return UserService.users;
+    }
 }
