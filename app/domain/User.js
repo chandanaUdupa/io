@@ -32,18 +32,12 @@ var User = (function () {
         get: function () {
             return this._nextId;
         },
-        set: function (value) {
-            this._nextId = value;
-        },
         enumerable: true,
         configurable: true
     });
     Object.defineProperty(User.prototype, "id", {
         get: function () {
             return this._id;
-        },
-        set: function (value) {
-            this._id = value;
         },
         enumerable: true,
         configurable: true

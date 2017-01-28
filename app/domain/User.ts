@@ -35,15 +35,7 @@ export class User {
         return this._nextId;
     }
 
-    static set nextId(value: number) {
-        this._nextId = value;
-    }
-
     get id(): number {
         return this._id;
-    }
-
-    set id(value: number) {
-        this._id = value;
     }
 }

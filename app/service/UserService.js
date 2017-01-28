@@ -16,14 +16,12 @@ var UserService = (function () {
         return null;
     };
     UserService.getByUsername = function (username) {
-        console.log(UserService._users);
         for (var _i = 0, _a = UserService._users; _i < _a.length; _i++) {
             var user = _a[_i];
             if (user.username == username) {
                 return user;
             }
         }
-        //return null;
     };
     UserService.deleteById = function (id) {
         var index = 0;
@@ -34,6 +32,10 @@ var UserService = (function () {
             }
             index++;
         }
+    };
+    UserService.addUser = function (user) {
+        UserService._users.push(user);
+        return user;
     };
     Object.defineProperty(UserService, "users", {
         get: function () {

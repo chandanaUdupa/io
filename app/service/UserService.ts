@@ -15,13 +15,11 @@ export class UserService {
     }
 
     public static getByUsername(username: string): User {
-        console.log(UserService._users);
         for (let user of UserService._users) {
             if(user.username == username) {
                 return user;
             }
         }
-        //return null;
     }
 
     public static deleteById(id: number): void {
@@ -32,6 +30,11 @@ export class UserService {
             }
             index++;
         }
+    }
+
+    public static addUser(user: User): User {
+        UserService._users.push(user);
+        return user;
     }
 
     static get users(): Array<User> {

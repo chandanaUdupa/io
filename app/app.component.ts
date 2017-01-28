@@ -27,7 +27,6 @@ import {UserService} from "./service/UserService";
 })
 export class AppComponent {
     user: User = new User('', '');
-    http: Http;
 
     constructor () {
     }
@@ -47,5 +46,4 @@ export class AppComponent {
             return;
         }
     }
-
 }
